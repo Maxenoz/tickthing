@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#00ffcc">
+    <title>TickThing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>TickThing</h1>
+                    <p>Multi-purpose ticking tools</p>
+                </div>
+                <button id="theme-toggle" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">🌙</button>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="timer">Timer</button>
+            <button class="tab-btn" data-tab="stopwatch">Stopwatch</button>
+            <button class="tab-btn" data-tab="custom">Custom Units</button>
+        </nav>
+
+        <!-- Timer Tab -->
+        <div id="timer" class="tab-content active">
+            <div class="timer-display">
+                <span id="timer-time">00:00:00</span>
+            </div>
+            
+            <div class="controls">
+                <input type="number" id="timer-hours" min="0" max="24" value="0" placeholder="Hours">
+                <input type="number" id="timer-minutes" min="0" max="59" value="0" placeholder="Minutes">
+                <input type="number" id="timer-seconds" min="0" max="59" value="10" placeholder="Seconds">
+            </div>
+
+            <div class="sound-controls">
+                <label>Start Sound:</label>
+                <input type="file" id="start-sound" accept="audio/*">
+                <select id="start-sound-select"></select>
+                
+                <label>Tick Sound:</label>
+                <input type="file" id="tick-sound" accept="audio/*">
+                <select id="tick-sound-select"></select>
+                <input type="number" id="tick-interval" min="0" value="2" placeholder="Every X seconds (0 = continuous)">
+                
+                <label>End Sound:</label>
+                <input type="file" id="end-sound" accept="audio/*">
+                <select id="end-sound-select"></select>
+            </div>
+
+            <label>
+                <input type="checkbox" id="auto-restart"> Auto-restart after finish
+            </label>
+
+            <div class="main-controls">
+                <button id="start-timer">Start</button>
+                <button id="pause-timer">Pause</button>
+                <button id="reset-timer">Reset</button>
+            </div>
+            
+            <div id="timer-status"></div>
+        </div>
+
+        <!-- Stopwatch Tab -->
+        <div id="stopwatch" class="tab-content">
+            <div class="stopwatch-display">
+                <span id="stopwatch-time">00:00:00</span>
+            </div>
+            
+            <div class="sound-controls">
+                <label>Start Sound:</label>
+                <input type="file" id="sw-start-sound" accept="audio/*">
+                <select id="sw-start-sound-select"></select>
+                
+                <label>Stop Sound:</label>
+                <input type="file" id="sw-stop-sound" accept="audio/*">
+                <select id="sw-stop-sound-select"></select>
+                
+                <label>Milestone Sound:</label>
+                <input type="file" id="milestone-sound" accept="audio/*">
+                <select id="milestone-sound-select"></select>
+                <input type="number" id="milestone-interval" min="1" value="5" placeholder="Milestone every X seconds">
+            </div>
+
+            <div class="main-controls">
+                <button id="start-stopwatch">Start</button>
+                <button id="stop-stopwatch">Stop</button>
+                <button id="reset-stopwatch">Reset</button>
+                <button id="lap-stopwatch">Lap</button>
+            </div>
+            
+            <div id="laps"></div>
+        </div>
+
+        <!-- Custom Units Tab -->
+        <div id="custom" class="tab-content">
+            <div class="custom-display">
+                <span id="custom-time">00</span>
+                <span id="custom-unit-name">units</span>
+            </div>
+            
+            <div>
+                <label>Seconds per unit:</label>
+                <input type="number" id="unit-seconds" min="0.1" step="0.1" value="5">
+            </div>
+
+            <div class="sound-controls">
+                <label>Start Sound:</label>
+                <input type="file" id="custom-start-sound" accept="audio/*">
+                <select id="custom-start-sound-select"></select>
+            </div>
+
+            <div class="main-controls">
+                <button id="start-custom">Start</button>
+                <button id="pause-custom">Pause</button>
+                <button id="reset-custom">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

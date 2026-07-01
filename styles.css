@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: all 0.4s;
+}
+
+body.light .container {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #00ffcc, #ff00cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: rgba(0,0,0,0.3);
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    color: #aaa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background: #00ffcc;
+    color: #1a1a2e;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.timer-display, .stopwatch-display, .custom-display {
+    font-size: 4.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 4px;
+}
+
+.controls, .sound-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+    justify-content: center;
+}
+
+input[type="number"] {
+    padding: 12px;
+    width: 80px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+select {
+    padding: 12px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    border-radius: 8px;
+}
+
+.main-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+button {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+body.light button {
+    color: #222;
+}
+
+#start-timer, #start-stopwatch, #start-custom {
+    background: #00ff88;
+    color: #1a1a2e;
+}
+
+#pause-timer, #stop-stopwatch, #pause-custom {
+    background: #ffaa00;
+}
+
+#reset-timer, #reset-stopwatch, #reset-custom {
+    background: #ff3366;
+    color: white;
+}
+
+#lap-stopwatch {
+    background: #4488ff;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+#timer-status, #laps {
+    margin-top: 20px;
+    text-align: center;
+    min-height: 50px;
+}
+
+.lap-entry {
+    padding: 8px;
+    background: rgba(255,255,255,0.1);
+    margin: 5px 0;
+    border-radius: 8px;
+}
